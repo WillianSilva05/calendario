@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+        * {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            height: 98vh;
+            background-color: #4DC9FF;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            padding: 20px 0;
+            margin: auto;
+            width: 99%;
+            text-align: center;
+        }
+
+        h1 {
+            position: absolute;
+            top: 0;
+        }
+
+        table {
+            background-color: rgba(228, 228, 228, 0.062);
+            border-radius: 10px;
+            color: #8F4C00;
+            text-shadow: 1px 1px 1px gray;
+            font-weight: 900;
+        }
+
+        td {
+            border: 1px solid #0E688F;
+        }
+
+        @media (max-width: 300px) {
+            td {
+                width: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calendário Atual - Willian Raniere</h1>
+    <table cellpadding="10" align="center">
+        <thead>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sab</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+    <footer>
+        - Todos os direitos reservados - Willian Raniere B.
+    </footer>
+
+    <script>
+        let data = new Date();
+        let dias = data.getDate();
+        let mes = data.getMonth() + 1;
+        let ano = data.getFullYear();
+
+        let totalDias = new Date(ano, mes, 0).getDate();
+
+        let td = document.querySelectorAll("td");
+
+        for (let index = 0; index < td.length; index++) {
+            if (td[index].textContent == dias) {
+                td[index].style.backgroundColor = "pink"
+            }
+
+            if (td[index].textContent > totalDias) {
+                td[index].style.border = "none"
+                td[index].innerText = "";
+            } else if (td[index].textContent > 29 && totalDias <= 29) {
+                td[index].style.border = "none"
+                td[index].innerText = "";
+            } else {
+                td[index].textContent
+            }
+        }
+
+    </script>
+</body>
+
+</html>
